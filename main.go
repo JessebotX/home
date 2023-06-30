@@ -19,12 +19,11 @@ var commands = map[string]*common.Command{
 }
 
 func main() {
+	// assume program called as `<command> [subcommand]`
 	name := filepath.Base(strings.TrimSuffix(os.Args[0], ".exe"))
 	args := os.Args[1:]
 
-	// TODO: implement help command for self-documentation
-	// eg. home help extract => prints info for command "extract"
-
+	// check if program called as `home <command> [subcommand]`
 	if name == program {
 		if len(args) <= 0 {
 			log.Fatal("Missing command")
@@ -32,6 +31,12 @@ func main() {
 
 		name = os.Args[1]
 		args = os.Args[2:]
+
+	}
+
+	if name == "help" {
+		usage(args)
+		return
 	}
 
 	cmd, ok := commands[name]
@@ -40,4 +45,20 @@ func main() {
 	}
 
 	cmd.Run(args)
+}
+
+func usage(args []string) {
+	if len(args) <= 0 {
+		log.Fatal("Missing arguments.")
+	}
+
+	name := args[0]
+	args = args[1:]
+
+	cmd, ok := commands[name]
+	if !ok {
+		log.Fatal("Missing arguments.")
+	}
+
+	cmd.Usage()
 }

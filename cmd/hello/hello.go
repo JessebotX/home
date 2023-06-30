@@ -15,11 +15,11 @@ func Run(args []string) {
 }
 
 func Usage() {
-	fmt.Printf(
+	fmt.Print(
 		"COMMAND\n",
 		"    hello\n",
 		"\n",
 		"DESCRIPTION\n",
-		`    Prints "Hello, world!"\n`,
+		"    Prints `Hello, world!`\n",
 	)
 }
