@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/jessebotx/home/cmd/ex"
+	// "github.com/jessebotx/home/cmd/ex"
+	"github.com/jessebotx/home/cmd/hello"
 	"github.com/jessebotx/home/common"
 	"log"
 	"os"
@@ -12,8 +13,9 @@ import (
 const program = "home"
 
 var commands = map[string]*common.Command{
-	"ex":      ex.Cmd,
-	"extract": ex.Cmd,
+	"hello":   hello.Cmd,
+	// "ex":      ex.Cmd,
+	// "extract": ex.Cmd,
 }
 
 func main() {
@@ -34,7 +36,7 @@ func main() {
 
 	cmd, ok := commands[name]
 	if !ok {
-		log.Fatalf("Unrecognized command %v\n", name)
+		log.Fatalf("Unrecognized command `%v`\n", name)
 	}
 
 	cmd.Run(args)
