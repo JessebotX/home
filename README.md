@@ -6,7 +6,7 @@ system/workflow/productivity management.
 1. Install `go`
 2. Run the following command
 
-      go install github.com/jessebotx/home@latest
+       go install github.com/jessebotx/home@latest
 
 # License
 * SDPX-License-Identifier: `MPL-2.0`
