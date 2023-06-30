@@ -6,7 +6,7 @@ import (
 )
 
 var Cmd = &common.Command{
-	Run: Run,
+	Run:   Run,
 	Usage: Usage,
 }
 

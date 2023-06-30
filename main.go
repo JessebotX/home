@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/jessebotx/home/commands/ex"
 	"github.com/jessebotx/home/common"
-	"github.com/jessebotx/home/ex"
 	"log"
 	"os"
 	"path/filepath"
