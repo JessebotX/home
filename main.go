@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jessebotx/home/commands/ex"
+	"github.com/jessebotx/home/cmd/ex"
 	"github.com/jessebotx/home/common"
 	"log"
 	"os"
