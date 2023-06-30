@@ -1,26 +1,41 @@
 package main
 
 import (
-	"fmt"
+	"github.com/jessebotx/home/common"
+	"github.com/jessebotx/home/ex"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-const prefix = "home"
+const program = "home"
+
+var commands = map[string]*common.Command{
+	"ex":      ex.Cmd,
+	"extract": ex.Cmd,
+}
 
 func main() {
 	name := filepath.Base(strings.TrimSuffix(os.Args[0], ".exe"))
 	args := os.Args[1:]
 
-	if name == prefix {
+	// TODO: implement help command for self-documentation
+	// eg. home help extract => prints info for command "extract"
+
+	if name == program {
 		if len(args) <= 0 {
-			return
+			log.Fatal("Missing command")
 		}
 
 		name = os.Args[1]
 		args = os.Args[2:]
 	}
 
-	fmt.Println(name, args)
+	cmd, ok := commands[name]
+	if !ok {
+		log.Fatalf("Unrecognized command %v\n", name)
+	}
+
+	cmd.Run(args)
 }
