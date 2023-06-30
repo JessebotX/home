@@ -3,6 +3,7 @@ package main
 import (
 	// "github.com/jessebotx/home/cmd/ex"
 	"github.com/jessebotx/home/cmd/hello"
+	"github.com/jessebotx/home/cmd/nx"
 	"github.com/jessebotx/home/common"
 	"log"
 	"os"
@@ -13,7 +14,8 @@ import (
 const program = "home"
 
 var commands = map[string]*common.Command{
-	"hello":   hello.Cmd,
+	"nx":    nx.Cmd,
+	"hello": hello.Cmd,
 	// "ex":      ex.Cmd,
 	// "extract": ex.Cmd,
 }
